@@ -10,7 +10,7 @@ const Rating: React.FC<RatingProps> = ({ value, onChange, label }) => {
     return (
         <div className="my-10 max-w-6xl mx-auto px-5">
             <div className="font-semibold text-lg mb-2 font-lato">{label}</div>
-            <div className="flex items-center gap-3 sm:gap-5 md:gap-8 mb-1">
+            <div className="flex items-center gap-3 sm:gap-5 md:gap-8 mb-1 justify-between md:justify-start">
                 {[1, 2, 3, 4, 5].map((num) => (
                     <button
                         key={num}

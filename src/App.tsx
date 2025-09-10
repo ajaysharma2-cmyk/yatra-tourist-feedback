@@ -75,40 +75,41 @@ const App: React.FC = () => {
           <div className="flex flex-col items-center justify-center border-0">
             <div className="py-0 max-w-xl w-full rounded-2xl border-gray-200 shadow-lg">
               {/* Header with logos */}
-              <div className="flex items-center justify-between px-8 pt-8 pb-2">
-                <img src={YatraCollabLogo} alt="Yatra Logo" className="m-auto" />
+              <div className="px-4 pt-2 pb-1 md:px-8 md:pt-5 flex items-center justify-between">
+                <img src={YatraCollabLogo} alt="Yatra Logo" className="m-auto w-11/12" />
               </div>
               {/* Red banner with stars and headline, with Bitmap background */}
               <div
-                className="rounded-t-2xl px-8 pt-6 pb-4 mt-4 flex flex-col items-center relative overflow-hidden"
+                className="rounded-t-2xl px-8  pt-2 pb-2 mt-2 flex flex-col items-center relative overflow-hidden"
                 style={{
                   backgroundColor: '#d60f0f',
                   backgroundImage: `url(${Bitmap})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  minHeight: '120px',
+                  minHeight: '90px',
                 }}
               >
                 <div className="flex gap-1 mb-2">
-                  <img src={Start} alt="stars" />
+                  <img src={Start} alt="stars" className="w-30 mb-2 md:w-36" />
                 </div>
-                <div className="text-2xl font-bold text-white text-center font-lato mb-2">Because, your opinion matters!</div>
+                <div className="text-[18px] sm:text-2xl font-bold text-white text-center font-lato mb-2">
+                  Because, your opinion matters!
+                </div>
               </div>
               {/* Intro text */}
               <div className="bg-white px-8 pt-6 pb-2 rounded-b-2xl">
                 <div className="mb-2 text-gray-800  text-[16px]  font-lato">Dear Ms. Sharma,</div>
-                <div className="my-9 text-gray-700  text-[16px]  font-lato">
-                  The <span className="font-bold">Ministry of Tourism, Government of India</span>, in collaboration with <span className="font-bold">Yatra Online Limited</span>, seeks to gather your experience during your recent travel.<br />
+                <div className="my-5 text-gray-700  text-[16px]  font-lato">
+                  The <span className="font-bold">Ministry of Tourism, Government of India</span>, in collaboration with <span className="font-bold">Yatra Online Limited</span>, seeks to gather your experience during your recent travel to <span className="font-lato font-bold text-blue-800">Jaipur</span> .<br />
                   This helps us do a better job at managing our destinations.
-                </div>
-                <div className="my-9 text-gray-700  text-[16px]  font-lato">Completing this survey will only take about 30 seconds.</div>
-                <div className="mb-4 text-gray-800  text-[16px]  font-lato">Thank you for your valuable participation.</div>
+                Completing this survey will only take about <span className="font-bold">30 seconds</span>.</div>
+                {/* <div className="mb-4 text-gray-800  text-[16px]  font-lato">Thank you for your valuable participation.</div> */}
               </div>
               <div className="border-t border-gray-200"></div>
               <div className="bg-[#F7F7F7] px-8 pt-6 pb-2">
-                <div className="mb-2  text-[#1E247E] text-base">How would you rate your trip on a scale of 1 to 5?</div>
-                <div className="mb-2 text-xs text-gray-600">1 is 'Very disappointing' and 5 is 'Couldn't have been better'</div>
+                <div className="mb-2  text-[#1E247E] text-base">How would you rate the destination <span className="font-lato font-bold text-blue-800">Jaipur</span> on a scale of 1 to 5?</div>
+                {/* <div className="mb-2 text-sm text-gray-600">1 is 'Very disappointing' and 5 is 'Couldn't have been better'</div> */}
                 <div className="my-7">
                   {/* Emoji rating bar */}
                   <div className="flex items-center justify-between gap-2 mb-4">
@@ -143,6 +144,11 @@ const App: React.FC = () => {
                     <div className="flex-1 bg-[#AAFB36]"></div>
                     <div className="flex-1 bg-[#7EBA28]"></div>
                   </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm  font-bold font-lato text-red-600 flex flex-col justify-center text-center align-center"><span>Very</span> <span>disappointing</span></span>
+                    <span className="text-sm font-bold  font-lato text-green-600 mx-6">Great</span>
+                  </div>
+                  
                 </div>
 
               </div>
@@ -176,10 +182,10 @@ const App: React.FC = () => {
                     />
                   </>
                   :
-                  <div className="sm:px-4 px-8 pt-6 pb-6 bg-white rounded-b-2xl">
+                  <div className="px-4 sm:px-4 md:px-8 pt-3 sm:pt-6 pb-3 sm:pb-6 bg-white rounded-b-2xl">
                     <div className="flex flex-col max-w-6xl m-auto">
                       {options.map((option: string, index: number) => (
-                        <label key={index} htmlFor={`option-${index}`} className="flex items-start space-x-3 transition rounded-lg py-3 cursor-pointer">
+                        <label key={index} htmlFor={`option-${index}`} className="flex items-start space-x-3 transition rounded-lg py-1 cursor-pointer">
                           <input
                             type="checkbox"
                             id={`option-${index}`}
@@ -239,14 +245,14 @@ const App: React.FC = () => {
                 {/* Mobile only BottomDrawer */}
               </div>
             </form>
-            <div className="block md:hidden mx-7 mb-2">
+            <div className="block md:hidden mx-4 mb-2">
               <BottomDrawer />
             </div>
           </>
         )}
         {/* Step 2: Thank you modal */}
         {step === 2 && (
-          <SuccessModal cssStyle={"fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 px-4"} shadow="bg-white rounded-xl shadow-lg" />
+          <SuccessModal cssStyle={"fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 px-4"} shadow="bg-white rounded-xl shadow-lg p-5 items-start" />
         )}
       </div>
     </div>
