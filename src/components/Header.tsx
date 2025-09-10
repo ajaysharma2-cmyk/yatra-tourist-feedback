@@ -18,7 +18,7 @@ const Header = ({ faces, destinationName }: any) => {
             <div>
                 <div
 
-                    className="px-8 py-6  border-b border-gray-200"
+                    className="px-3 py-6  border-b border-gray-200"
                     style={{
                             background: faces > 3
                                 ? 'linear-gradient(180deg, #F1E070 0%, #77DEA8 100%)'
