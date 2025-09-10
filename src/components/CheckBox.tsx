@@ -1,42 +1,27 @@
 import React from 'react';
+import { options } from '../utils/constant';
 
-type CheckBoxProps = {
-    options?: string[];
-    selected: string[];
-    onChange: (selected: string[]) => void;
-};
+interface CheckboxListProps {
+    optionsList?: string[];
+    selected?: string[];
+    toggleOption: (option: string) => void;
+}
 
-const defaultOptions: string[] = [
-    "Not feeling welcomed and behaviour of locals",
-    "Lack of Hygiene & cleanliness",
-    "Lack of Safety and Security measures",
-    "Overcrowding",
-    "Bad Experience at attractions, things to do (Eg. Leisure activities, Museums, Shopping, Food, etc.)",
-    "Lack of Accessibility & wayfinding (local travel, signages, traffic, universal accessibility)",
-    "Poor Quality and low service standards (Eg. at Eateries, Drivers, Guides etc.)",
-    "Other (100 words)"
-];
-
-const CheckBox: React.FC<CheckBoxProps> = ({ options = defaultOptions, selected, onChange }) => {
-    const toggleOption = (option: string) => {
-        let updated: string[];
-        if (selected.includes(option)) {
-            updated = selected.filter((o) => o !== option);
-        } else {
-            updated = [...selected, option];
-        }
-        onChange(updated);
-    };
+const CheckboxList: React.FC<CheckboxListProps> = ({ optionsList = options, selected, toggleOption }) => {
     return (
         <>
-            {options.map((option, index) => (
-                <label key={index} htmlFor={`option-${index}`} className="flex items-start space-x-3 transition rounded-lg py-3 cursor-pointer">
+            {optionsList.map((option: string, index: number) => (
+                <label
+                    key={index}
+                    htmlFor={`option-${index}`}
+                    className="flex items-start space-x-3 transition rounded-lg md:py-3 py-1 cursor-pointer"
+                >
                     <input
                         type="checkbox"
                         id={`option-${index}`}
-                        checked={selected.includes(option)}
+                        checked={selected?.includes(option)}
                         onChange={() => toggleOption(option)}
-                        className="accent-[#d60f0f] h-5 w-5 min-h-[18px] min-w-[18px] max-h-[18px] max-w-[18px] mt-1 flex-shrink-0"
+                        className="accent-[#d60f0f] h-5 w-5 min-h-[18px] min-w-[18px] max-h-[18px] max-w-[18px] flex-shrink-0"
                         style={{ height: '18px', width: '18px' }}
                     />
                     <span className="text-gray-800 text-sm">{option}</span>
@@ -46,4 +31,4 @@ const CheckBox: React.FC<CheckBoxProps> = ({ options = defaultOptions, selected,
     );
 };
 
-export default CheckBox;
+export default CheckboxList;

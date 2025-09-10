@@ -9,6 +9,8 @@ import SuccessModal from "./components/SuccessModal";
 import { faces, options } from "./utils/constant";
 import Rating from "./components/Rating";
 import BottomDrawer from "./components/BottomDrawer";
+import CheckBox from "./components/CheckBox";
+import CheckboxList from "./components/CheckBox";
 
 
 
@@ -22,7 +24,7 @@ const App: React.FC = () => {
   const [yourValue, setYourValue] = useState<number | null>(null);
   const [yourValueForOther, setYourValueForOther] = useState<number | null>(null);
   const [otherText, setOtherText] = useState("");
-
+  const [visible, setVisible] = useState(false);
   const toggleOption = (option: string) => {
     setSelected((prev) =>
       prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option]
@@ -47,9 +49,11 @@ const App: React.FC = () => {
     };
     try {
       await postFeedback(data);
-      setStep(2);
+      // setStep(2);
+      setVisible(true);
     } catch (error) {
-      setStep(2);
+      // setStep(2);
+      setVisible(true);
     } finally {
       setLoading(false);
     }
@@ -103,7 +107,7 @@ const App: React.FC = () => {
                 <div className="my-5 text-gray-700  text-[16px]  font-lato">
                   The <span className="font-bold">Ministry of Tourism, Government of India</span>, in collaboration with <span className="font-bold">Yatra Online Limited</span>, seeks to gather your experience during your recent travel to <span className="font-lato font-bold text-blue-800">Jaipur</span> .<br />
                   This helps us do a better job at managing our destinations.
-                Completing this survey will only take about <span className="font-bold">30 seconds</span>.</div>
+                  Completing this survey will only take about <span className="font-bold">30 seconds</span>.</div>
                 {/* <div className="mb-4 text-gray-800  text-[16px]  font-lato">Thank you for your valuable participation.</div> */}
               </div>
               <div className="border-t border-gray-200"></div>
@@ -148,7 +152,6 @@ const App: React.FC = () => {
                     <span className="text-sm  font-bold font-lato text-red-600 flex flex-col justify-center text-center align-center"><span>Very</span> <span>disappointing</span></span>
                     <span className="text-sm font-bold  font-lato text-green-600 mx-6">Great</span>
                   </div>
-                  
                 </div>
 
               </div>
@@ -185,19 +188,7 @@ const App: React.FC = () => {
                   :
                   <div className="px-4 sm:px-4 md:px-8 pt-3 sm:pt-6 pb-3 sm:pb-6 bg-white rounded-b-2xl">
                     <div className="flex flex-col max-w-6xl m-auto">
-                      {options.map((option: string, index: number) => (
-                        <label key={index} htmlFor={`option-${index}`} className="flex items-start space-x-3 transition rounded-lg md:py-3 py-1 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            id={`option-${index}`}
-                            checked={selected.includes(option)}
-                            onChange={() => toggleOption(option)}
-                            className="accent-[#d60f0f] h-5 w-5 min-h-[18px] min-w-[18px] max-h-[18px] max-w-[18px]  flex-shrink-0"
-                            style={{ height: '18px', width: '18px' }}
-                          />
-                          <span className="text-gray-800 text-sm">{option}</span>
-                        </label>
-                      ))}
+                      <CheckboxList selected={selected} toggleOption={toggleOption} />
                       {selected.includes("Other (100 words)") && (
                         <div className="my-4">
                           <textarea
@@ -229,7 +220,6 @@ const App: React.FC = () => {
                           className="w-full border border-gray-300 rounded p-3 text-gray-700 focus:outline-none focus:border-[#d60f0f] min-h-[60px]"
                         />
                       </div>
-
                     </div>
                   </div>
               }
@@ -238,21 +228,22 @@ const App: React.FC = () => {
                 {/* Desktop only submit button */}
                 <button
                   type="submit"
+                  onClick={() => handleSubmit}
                   className="hidden md:block mt-2 w-28 h-14 rounded-xl bg-[#ff2d2d] text-white font-bold text-base shadow hover:bg-[#d60f0f] transition"
                   disabled={loading}
                 >
                   {loading ? 'Submitting...' : 'Submit'}
                 </button>
-                {/* Mobile only BottomDrawer */}
               </div>
             </form>
+            {/* Mobile only BottomDrawer */}
             <div className="block md:hidden mx-4 mb-2">
               <BottomDrawer />
             </div>
           </>
         )}
         {/* Step 2: Thank you modal */}
-        {step === 2 && (
+        {visible && (
           <SuccessModal cssStyle={"fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 px-4"} shadow="bg-white rounded-xl shadow-lg p-5 items-start" />
         )}
       </div>
