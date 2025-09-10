@@ -36,7 +36,7 @@ const Header = ({ faces, destinationName }: any) => {
                             </span>
                             <div className="flex flex-col flex-1">
                                 <span className="text-black text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 font-lato">Thank you for your response!</span>
-                                <span className="text-base sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Please let us know if there are any specific areas from the list below that you would like to see improved in <span className="">{destinationName}</span>?</span>
+                                <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Please let us know if there are any specific areas from the list below that you would like to see improved in <span className="">{destinationName}</span>?</span>
                             </div>
                         </div>
 
