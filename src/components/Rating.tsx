@@ -47,7 +47,7 @@ const Rating: React.FC<RatingProps> = ({ value, onChange, label }) => {
                     </button>
                 ))}
             </div>
-            <div className="flex justify-between text-xs mt-1">
+            <div className="flex justify-between text-xs mt-1 md:w-[450px]">
                 <span className="text-[#d60f0f] font-medium font-lato">Very Unlikely</span>
                 <span className="text-green-700 font-medium font-lato">Very Likely</span>
             </div>

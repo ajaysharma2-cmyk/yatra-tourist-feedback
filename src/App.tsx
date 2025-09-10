@@ -175,6 +175,7 @@ const App: React.FC = () => {
                       onChange={setYourValue}
                       label="How likely are you to visit this destination again in the future?"
                     />
+                    <div className="border-t border-gray-200 block md:hidden"></div>
                     <Rating
                       value={yourValueForOther ?? 0}
                       onChange={setYourValueForOther}
@@ -185,7 +186,7 @@ const App: React.FC = () => {
                   <div className="px-4 sm:px-4 md:px-8 pt-3 sm:pt-6 pb-3 sm:pb-6 bg-white rounded-b-2xl">
                     <div className="flex flex-col max-w-6xl m-auto">
                       {options.map((option: string, index: number) => (
-                        <label key={index} htmlFor={`option-${index}`} className="flex items-start space-x-3 transition rounded-lg py-1 cursor-pointer">
+                        <label key={index} htmlFor={`option-${index}`} className="flex items-start space-x-3 transition rounded-lg md:py-3 py-1 cursor-pointer">
                           <input
                             type="checkbox"
                             id={`option-${index}`}
@@ -233,7 +234,7 @@ const App: React.FC = () => {
                   </div>
               }
 
-              <div className="max-w-6xl px-6 m-auto">
+              <div className="max-w-6xl md:px-0 px-6 m-auto">
                 {/* Desktop only submit button */}
                 <button
                   type="submit"
