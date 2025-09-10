@@ -19,7 +19,7 @@ const App: React.FC = () => {
   const [face, setFace] = useState<number | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
   const [suggestion, setSuggestion] = useState<string>("");
-  const [destinationName, setDestinationName] = useState<string>("Paris");
+  const [destinationName, setDestinationName] = useState<string>("Jaipur");
   const [loading, setLoading] = useState(false);
   const [yourValue, setYourValue] = useState<number | null>(null);
   const [yourValueForOther, setYourValueForOther] = useState<number | null>(null);
