@@ -13,7 +13,7 @@ import BottomDrawer from "./components/BottomDrawer";
 
 
 const App: React.FC = () => {
-  const [step, setStep] = useState<0 | 1 | 2>(0); // 0: face, 1: feedback, 2: thank you
+  const [step, setStep] = useState<0 | 1 | 2>(0); // 0: face, 1: feedback, 2: thank yo
   const [face, setFace] = useState<number | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
   const [suggestion, setSuggestion] = useState<string>("");
