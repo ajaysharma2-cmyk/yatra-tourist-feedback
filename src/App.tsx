@@ -6,11 +6,11 @@ import YatraCollabLogo from "./assets/Yatra_logo.png";
 import SocialIcons from "./components/SocialIcons";
 import Header from "./components/Header";
 import SuccessModal from "./components/SuccessModal";
-import { faces, options } from "./utils/constant";
+import { faces } from "./utils/constant";
 import Rating from "./components/Rating";
 import BottomDrawer from "./components/BottomDrawer";
-import CheckBox from "./components/CheckBox";
 import CheckboxList from "./components/CheckBox";
+import { FaArrowCircleRight, FaArrowLeft, FaBackward } from "react-icons/fa";
 
 
 
@@ -167,6 +167,14 @@ const App: React.FC = () => {
           <>
             <form onSubmit={handleSubmit} className="px-0 py-0">
               <Header faces={faces.find(f => f.value === face)?.value} destinationName={destinationName} />
+              <button
+                type="button"
+                className="max-w-6xl mx-auto w-full mt-2 px-2 py-3 flex justify-start items-center gap-2 text-[#1E247E] font-semibold text-base focus:outline-none hover:underline"
+                onClick={() => setStep(0)}
+              >
+                <FaArrowLeft />
+                Back
+              </button>
               {
                 face === 0 || face === null ? <div className="p-8 text-center text-gray-600">Please select a rating to proceed.</div> : null
               }
@@ -186,7 +194,7 @@ const App: React.FC = () => {
                     />
                   </>
                   :
-                  <div className="px-4 sm:px-4 md:px-8 pt-3 sm:pt-6 pb-3 sm:pb-6 bg-white rounded-b-2xl">
+                  <div className="px-4 sm:px-4 md:px-8 pt-1 sm:pt-2 pb-3 sm:pb-6 bg-white rounded-b-2xl">
                     <div className="flex flex-col max-w-6xl m-auto">
                       <CheckboxList selected={selected} toggleOption={toggleOption} />
                       {selected.includes("Other (100 words)") && (
