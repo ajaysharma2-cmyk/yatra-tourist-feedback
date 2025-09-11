@@ -6,7 +6,7 @@ const Header = ({ faces, destinationName, subTitle }: any) => {
         <div>
 
             <header className="bg-white border-b border-t-2  border-t-yellow-100 shadow">
-                <div className="max-w-6xl mx-auto py-3 flex items-center space-x-6">
+                <div className="max-w-6xl mx-auto py-3 flex items-center justify-center md:justify-start space-x-6">
                     {/* Yatra Logo */}
                     <img
                         src={YatraLogo}
