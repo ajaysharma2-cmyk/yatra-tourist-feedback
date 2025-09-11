@@ -1,7 +1,7 @@
 import YatraLogo from '../assets/Yatra_logo.png';
 import Like from '../assets/emoji/like.png'
 import Dislike from '../assets/emoji/dislike.png'
-const Header = ({ faces, destinationName }: any) => {
+const Header = ({ faces, destinationName, subTitle }: any) => {
     return (
         <div>
 
@@ -20,9 +20,9 @@ const Header = ({ faces, destinationName }: any) => {
 
                     className="px-3 py-6  border-b border-gray-200"
                     style={{
-                            background: faces > 3
-                                ? 'linear-gradient(180deg, #F1E070 0%, #77DEA8 100%)'
-                                : 'linear-gradient(180deg, #F1E070 0%, #DEA4A4 100%)'
+                        background: faces > 3
+                            ? 'linear-gradient(180deg, #F1E070 0%, #77DEA8 100%)'
+                            : 'linear-gradient(180deg, #F1E070 0%, #DEA4A4 100%)'
                     }}
                 >
                     <div className='max-w-6xl mx-auto space-x-6'>
@@ -36,7 +36,11 @@ const Header = ({ faces, destinationName }: any) => {
                             </span>
                             <div className="flex flex-col flex-1">
                                 <span className="text-black text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 font-lato">Thank you for your response!</span>
-                                <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Please let us know if there are any specific areas from the list below that you would like to see improved in <span className="">{destinationName}</span>?</span>
+                                {
+                                    faces > 3 ?
+                                        <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Thank you for your feedback. We’re delighted to know you had a great experience. May we also ask </span> :
+                                        <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Please let us know if there are any specific areas from the list below that you would like to see improved in <span className="">{destinationName}</span>?</span>
+                                }
                             </div>
                         </div>
 

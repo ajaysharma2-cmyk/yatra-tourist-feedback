@@ -40,12 +40,13 @@ const App: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     const data = {
-      face,
-      selected,
-      suggestion,
       userId: "68bfdb51d354b939637a18dc",
       destinationType: "city",
       destinationName,
+      rating:face,
+      improvement_points: selected,
+      suggestion,
+      other_text: otherText
     };
     try {
       await postFeedback(data);
@@ -166,7 +167,7 @@ const App: React.FC = () => {
         {step === 1 && (
           <>
             <form onSubmit={handleSubmit} className="px-0 py-0">
-              <Header faces={faces.find(f => f.value === face)?.value} destinationName={destinationName} />
+              <Header faces={faces.find(f => f.value === face)?.value} destinationName={destinationName} subTitle="" />
               <button
                 type="button"
                 className="max-w-6xl mx-auto w-full mt-2 px-2 py-3 flex justify-start items-center gap-2 text-[#1E247E] font-semibold text-base focus:outline-none hover:underline"
