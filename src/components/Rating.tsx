@@ -51,6 +51,7 @@ const Rating: React.FC<RatingProps> = ({ value, onChange, label }) => {
                 <span className="text-[#d60f0f] font-medium font-lato">Very Unlikely</span>
                 <span className="text-green-700 font-medium font-lato">Very Likely</span>
             </div>
+            
         </div>
     );
 };

@@ -1,4 +1,5 @@
-import YatraLogo from '../assets/Yatra_logo.png';
+// import govlogo from '../assets/gov_logo.png';
+import YatraLogo from '../assets/Yatra_Incredible-India.png';
 import Like from '../assets/emoji/like.png'
 import Dislike from '../assets/emoji/dislike.png'
 const Header = ({ faces, destinationName, subTitle }: any) => {
@@ -6,13 +7,14 @@ const Header = ({ faces, destinationName, subTitle }: any) => {
         <div>
 
             <header className="bg-white border-b border-t-2  border-t-yellow-100 shadow">
-                <div className="max-w-6xl mx-auto py-3 flex items-center justify-center md:justify-start space-x-6">
+                <div className="max-w-6xl mx-auto py-3 flex items-center justify-between md:justify-between space-x-6 px-3">
                     {/* Yatra Logo */}
-                    <img
-                        src={YatraLogo}
-                        alt="Yatra Logo"
+                    {/* <img
+                        src={govlogo}
+                        alt="gov Logo"
                         className="  object-contain"
-                    />
+                    /> */}
+                    <img src={YatraLogo} alt="Yatra Logo" className="h-10 md:h-12 lg:h-14 object-contain" />
                 </div>
             </header>
             <div>
@@ -39,7 +41,7 @@ const Header = ({ faces, destinationName, subTitle }: any) => {
                                 {
                                     faces > 3 ?
                                         <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Thank you for your feedback. We’re delighted to know you had a great experience. May we also ask </span> :
-                                        <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Please let us know if there are any specific areas from the list below that you would like to see improved in <span className="">{destinationName}</span>?</span>
+                                        <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-black font-light font-lato">Please let us know if there are any specific areas from the list below that you would like to see improved in <span className="capitalize">{destinationName}</span>?</span>
                                 }
                             </div>
                         </div>

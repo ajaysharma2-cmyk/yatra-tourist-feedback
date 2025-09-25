@@ -14,6 +14,7 @@ export const getFeedback = async (userId: string, destinationType: string, desti
     });
     return response.data;
   } catch (error) {
+    console.log(error)
     throw error;
   }
 };
